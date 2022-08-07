@@ -37,7 +37,7 @@ header {
     box-sizing: border-box;
 }
 
-#makeRoomButton {
+#join {
     width: auto;
     position: absolute;
     width: 240px;
@@ -46,4 +46,12 @@ header {
     top: 557px;
     background: #7A99EA;
     border-radius: 36px;
+}
+
+#makeRoomButton {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 20%;
 }
