@@ -10,15 +10,17 @@
 // 3. -- 途中 --
 
 // firebase_client_libraryは任意の名前
-import firebase from "firebase_client_library";
-import "firebase/firestore";
+// import firebase from "firebase_client_library";
+// import "firebase/firestore";
 
 // getRoomInfoという間数: 受信したroom num => いらないかも
-const getRoomInfo = getRoomInfo(roomNum);
+// const getRoomInfo = getRoomInfo(roomNum);
 
 // room 選択
 // brainStormingFormという名前は任意である
-const roomID = document.querySelector("#roomID");
+// 競合
+const roomID_ = document.querySelector("#roomID");
+console.log(roomID_)
 
 // mainテーマ (idで指定)設定: roomのmain話題のselect
 // mainThemeという名前は任意である
@@ -31,10 +33,10 @@ const allTexts = document.querySelector("#brainstorm");
 
 // firestoreを読み込んで、dbServiceという変数に入れる
 // dbServiceを通して、firestoreの動作 (修正, 追加, 削除)ができる
-const dbService = firebase.firestore();
+// const dbService = firebase.firestore();
 
 //既存のデータ持ってくる いらないかも
-const getPreviousMsg = getMsgInfo(roomNum);
+const getPreviousMsg = getMsgInfo(roomID_);
 
 // MARK: Firestoreのリアルタイムデータ感知
 // 空の配列
@@ -42,7 +44,7 @@ let textArr = [];
 
 // 設定したcollectionの名からデータの変更を感知
 // テキストcollection: brainstorm
-dbService.collection("brainstorm").onSnapshot((snapshot) => {
+db.collection("brainstorm").onSnapshot((snapshot) => {
     // textArrに文書のデータとidを保存
     textArr = snapshot.docs.map((doc) => ({
         ...doc.data(), id: doc.id,

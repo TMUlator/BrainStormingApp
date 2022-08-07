@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <titile>Message</titile>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="api.js"></script>
 </head>
 
 <body>
@@ -18,13 +22,24 @@
         </nav>
     </header>
     <p>class ID</p>
+    <div id="brainstorm"></div>
 
     <div class="parent">
         <input id="messagebox" type="text" id="message" placeholder="メッセージを入力してください">
-        <button id="button" onclick="clickBtn()">Send</button>
+        <button id="button" onclick="clickBtn_send()">Send</button>
     </div>
 
-
+    <script>
+        var query = location.search;
+        var value = query.split('=');
+        roomID = value[1];
+        console.log(roomID)
+    </script>
+    <!--<script src="make_room.js"></script>-->
+    <!--<script src="join_room.js"></script>-->
+    <script src="message_send.js"></script>
+    <script src="dataFromFireStore.js"></script>
+    
 </body>
 
 </html>
