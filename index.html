@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="api.js"></script>
+    <script src="make_room.js"></script>
+    <titile>ブレインストーミングアプリ</titile>
+    <link rel="stylesheet" href="style_index.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">TMUlator</h1>
+        <!-- <nav class="nav">
+            <ul class="menu-group">
+                <li class="menu-item"><a href="#">Home</a></li>
+                <li class="menu-item"><a href="#">Message</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <div class="parent">
+        <input id="roomID" type="text" placeholder="ルームIDを入力してください">
+        <button id="makeRoomButton">作成</button>
+    </div>
+</body>
+
+</html>
