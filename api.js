@@ -1,5 +1,3 @@
-import {initializeApp} from'firebase/app'; //パッケージ利用
-import {getFirestore,collection,getDoc, setDoc} from 'firebase/firestore'; //パッケージ利用
 const firebaseConfig = {
     apiKey: "AIzaSyDAgLcMvbvcUbfAifZfqrlZ9qmtC39US0M",
     authDomain: "tmulator-brainstorming.firebaseapp.com",
