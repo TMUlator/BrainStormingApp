@@ -10,8 +10,8 @@
 // 3. -- 途中 --
 
 // firebase_client_libraryは任意の名前
-import firebase from "firebase_client_library";
-import "firebase/firestore";
+// import firebase from "firebase_client_library";
+// import "firebase/firestore";
 
 // getRoomInfoという間数: 受信したroom num => いらないかも
 const getRoomInfo = getRoomInfo(roomNum);
@@ -68,7 +68,7 @@ const presentingData = () => {
         li.innerText = `${t.mainTheme}`;
 
         // button tagの中に deleteが入る (削除)
-        btn.innerText = "delete";
+        btn.innerText = "Delete";
 
         // buttonがクリックされた時、間数の発生 -> Event Listener
         // button Click? -> onDeleteClick 呼び出し
