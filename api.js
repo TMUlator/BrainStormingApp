@@ -11,7 +11,7 @@ initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
-const verification = "info_test1"
+const verification = "info_test"
 
 //ルーム情報送信
 async function sendRoomInfo(){
