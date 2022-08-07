@@ -2,48 +2,47 @@
 // Room Data Send Func: sendRoomInfo()  -> return: room Obj
 // Get Room Info: getRoomInfo(roomNumber) -> return: room Obj
 // Send Message Info: sendMsgInfo(messageObj) -> return: message index Num
-// Get Massage Info:  getMsgInfo(roomNumber) -> return: message Object
+// Get Message Info:  getMsgInfo(roomNumber) -> return: message Object
 
 // データを画面に出力する
 // 1. 該当するRoomに画面を出力
 // 2. 出力Style指定
 // 3. -- 途中 --
 
-// const database = firebase.firestore();
-
-
-// function clickBtn() {
-//     const a = 1;
-// }
-
-import firebase from "firebase_client_librarry";
+// firebase_client_libraryは任意の名前
+import firebase from "firebase_client_library";
 import "firebase/firestore";
+
+// getRoomInfoという間数: 受信したroom num => いらないかも
+const getRoomInfo = getRoomInfo(roomNum);
+
+// room 選択
+// brainStormingFormという名前は任意である
+const roomID = document.querySelector("#roomID");
+
+// mainテーマ (idで指定)設定: roomのmain話題のselect
+// mainThemeという名前は任意である
+const mainThemeInput = document.querySelector("#mainTheme");
+
+// 出力するdiv要素
+// allTextsという名前は任意である
+// テキストcollection 指定: brainstorm
+const allTexts = document.querySelector("#brainstorm");
 
 // firestoreを読み込んで、dbServiceという変数に入れる
 // dbServiceを通して、firestoreの動作 (修正, 追加, 削除)ができる
 const dbService = firebase.firestore();
 
-// getRoomInfoという間数: 受信したroom num
-const getRoomInfo = getRoomInfo();
-
-// form 選択
-// brainStormingFormという名前は任意である
-const brainStormingForm = document.querySelector("#brainStormingForm");
-
-// mainテーマ (idで指定)設定: roomのmain話題のselect
-// mainThemeという名前は任意である
-const mainThemeInput = document.quertSelector("#mainTheme");
-
-// 出力するdiv要素
-// allTextsという名前は任意である
-const allTexts = document.querySelector("#allTexts")
+//既存のデータ持ってくる いらないかも
+const getPreviousMsg = getMsgInfo(roomNum);
 
 // MARK: Firestoreのリアルタイムデータ感知
 // 空の配列
 let textArr = [];
+
 // 設定したcollectionの名からデータの変更を感知
-// allTextsは任意の名前
-dbService.collection("allTexts").onSnapshot((snapshot) => {
+// テキストcollection: brainstorm
+dbService.collection("brainstorm").onSnapshot((snapshot) => {
     // textArrに文書のデータとidを保存
     textArr = snapshot.docs.map((doc) => ({
         ...doc.data(), id: doc.id,
@@ -54,6 +53,7 @@ dbService.collection("allTexts").onSnapshot((snapshot) => {
 
 // メッセージを画面に表示する間数
 const presentingData = () => {
+
     // ul (・ でできるリスト) 要素生成
     const ul = document.createElement("ul");
 
@@ -89,12 +89,13 @@ const presentingData = () => {
 
 };
 
+// 使うかどうかはわからん
 // firestoreからデータを削除する
 const onDeleteClick = (e) => {
     const targetID = e.target.id;
 
-    // dbServiceの allTexts　collectionにあった該当のidを削除する
-    dbService.collection("allTexts").doc(`${targetID}`).delete();
+    // dbServiceの brainstorm　collectionにあった該当のidを削除する
+    dbService.collection("brainstorm").doc(`${targetID}`).delete();
 
     // 削除したため、新しくtextsを画面に描く
     presentingData();
