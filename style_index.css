@@ -9,30 +9,24 @@ header {
 .title {
     margin-right: auto;
     color: white;
-    font-family: 'serif'
+    font-family: 'serif';
 }
 
-.menu-item {
+
+/* .menu-item {
     list-style: none;
     display: inline-block;
     padding: 44px;
-    /* Heading Bold */
+    
     font-family: 'serif';
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
     color: white;
-}
+} */
 
-.parent {
-    position: relative;
-    background-color: #7A99EA;
-    width: 644px;
-    height: 50px;
-}
-
-#messagebox {
+#roomID {
     position: absolute;
     width: 640px;
     height: 100px;
@@ -43,7 +37,7 @@ header {
     box-sizing: border-box;
 }
 
-#button {
+#join {
     width: auto;
     position: absolute;
     width: 240px;
@@ -52,4 +46,12 @@ header {
     top: 557px;
     background: #7A99EA;
     border-radius: 36px;
+}
+
+#makeRoomButton {
+    width: 240px;
+    height: 100px;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 20%;
 }
