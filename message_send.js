@@ -2,13 +2,13 @@
 function clickBtn_send() {
     //t1にメッセージを入れる
     const t1 = document.getElementById("messagebox").value;
-    document.getElementById("message").textContent = t1;
-    //sendMsgInfo(roomID, t1);
+    //document.getElementById("message").textContent = t1;
+    sendMsgInfo(roomID, t1);
     console.log(t1);
-    t3 = document.getElementById("m_send").textContent;
+    /*t3 = document.getElementById("m_send").textContent;
     if (t3 === "編集") {
         document.getElementById("m_send").textContent = "送信"
-    }
+    }*/
 }
 //メッセージ編集関数（文字がクリックされたとき）
 function clickBtn_choice() {
@@ -24,10 +24,10 @@ function clickBtn_choice() {
 function clickBtn_edit() {
     //t1にメッセージを入れる
     const t1 = document.getElementById("messagebox").value;
-    document.getElementById("message").textContent = t1;
-    //sendMsgInfo(roomID, t1);
-    t3 = document.getElementById("m_send").textContent;
-    if (t3 === "編集") {
-        document.getElementById("m_send").textContent = "送信"
-    }
+    //document.getElementById("message").textContent = t1;
+    sendMsgInfo(roomID, t1);
+    // t3 = document.getElementById("m_send").textContent;
+    // if (t3 === "編集") {
+    //     document.getElementById("m_send").textContent = "送信"
+    // }
 }

@@ -7,54 +7,55 @@ const firebaseConfig = {
     appId: "1:686034257330:web:ff3baa007fc3274a2f10ab",
     measurementId: "G-VGSE4RRBGT"
   };
-initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-const db = getFirestore();
+const db = firebase.firestore();
 
 const verification = "info_test"
 
 //ルーム情報送信
 async function sendRoomInfo(){
-    const info = doc(db,"brainstorm",verification);
-    const loadDoc = await getDoc(doc);
-    const room_id = loadDoc.data().size;
+    const info = db.collection('brainstorm').doc(verification);
+    const loadDoc = await info.get();
+    let roomId = loadDoc.data().size;
 
-    const name = "room" + room_id;
-    await info.setDoc(info,{
-        size : room_id,
+    roomId++;
+    const name = "room" + roomId;
+    await info.set({
+        size : roomId,
         [name] : {
             size : 0
         }},
         {merge : true}
     );
-    return room_id;
+    return roomId;
 }
 
 //ルーム情報受信
 async function getRoomInfo(roomNum){
-    const info = doc(db,"brainstorm",verification);
+    const info = db.collection('brainstorm').doc(verification);
     const name = "room"+roomNum;
     
-    const loadDoc = await getDoc(doc);
+    const loadDoc = await info.get();
     const roomObj = loadDoc.data()[name];
 
-    if(verification.indexOf("test") != -1) console.log(roomObj);
     return roomObj;
 }
 
 //テキスト情報送信
 async function sendMsgInfo(roomNum,text){
-    const info = doc(db,"brainstorm",verification);
+    const info = db.collection('brainstorm').doc(verification);
     const roomName = "room"+roomNum;
 
-    const loadDoc = await getDoc(doc);
+    const loadDoc = await info.get();
     
     let roomId = loadDoc.data()[roomName].size;
     
     roomId++;
     const msgName = "msg"+roomId;
-    await info.setDoc(info,{
+    await info.set({
         [roomName] : {
+            size : roomId,
             [msgName] : {
                 index : roomId,
                 msg : text
@@ -66,23 +67,22 @@ async function sendMsgInfo(roomNum,text){
 
 //テキスト情報受信
 async function getMsgInfo(roomId){
-    const info = doc(db,"brainstorm",verification);
+    const info = db.collection('brainstorm').doc(verification);
     const roomName = "room"+roomId;
 
-    loadDoc = await getDoc(doc);
+    loadDoc = await info.get();
     const roomObj = loadDoc.data()[roomName];
 
-    if(verification.indexOf("test") != -1) console.log(roomObj);
     return roomObj;
 }
 
 //テキスト内容変更
 async function changeMsgInfo(roomId,textId,text){
-    const info = doc(db,"brainstorm",verification);
+    const info = db.collection('brainstorm').doc(verification);
     const roomName = "room"+roomId;
     const msgName = "msg"+textId;
 
-    await setDoc(doc,{
+    await info.set({
         [roomName] : {
             [msgName] : text
         }},
