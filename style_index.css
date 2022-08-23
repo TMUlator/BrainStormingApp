@@ -1,0 +1,92 @@
+header {
+    display: flex;
+    width: 100%;
+    height: 144px;
+    background-color: rgb(90, 129, 201);
+    align-items: center;
+}
+
+#home {
+    background-image: radial-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url(../BrainStormingApp/whiteboard.jpg);
+    min-height: 100vh;
+}
+
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+}
+
+
+/* 透過されないものをdivで分けとく */
+
+
+/* .content {
+    position: absolute;
+} */
+
+body {
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    text-align: center;
+}
+
+#header_d {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 0px;
+}
+
+.discription {
+    text-align: center;
+    margin-top: 0px;
+    color: black;
+    font-family: monospace;
+}
+
+#makeRoomButton {
+    width: 240px;
+    height: 100px;
+    /* position: absolute; */
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 18px 32px;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: rgb(38, 38, 38);
+}
+
+#join_g {
+    margin-top: 10%;
+}
+
+#roomID {
+    /* position: absolute; */
+    width: 600px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#join {
+    /* position: absolute; */
+    width: 240px;
+    height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #7A99EA;
+    border-radius: 36px;
+    color: white;
+    font-size: 1.375rem;
+    font-weight: bold;
+}
