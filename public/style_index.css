@@ -7,7 +7,7 @@ header {
 }
 
 #home {
-    background-image: radial-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url(../BrainStormingApp/whiteboard.jpg);
+    background-image: radial-gradient(rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .5) 100%), url(whiteboard.jpg);
     min-height: 100vh;
 }
 
